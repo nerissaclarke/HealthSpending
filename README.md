@@ -10,12 +10,18 @@ Illuminate how healthcare spending varies by age group, gender, and type of serv
 Project #1: Filter data by each of the categories, allowing user to explore the data/find themselves in the data
 Focus on year: 2010
 Elements needed
+
 1. Axes
+ 
 2. Axes Labels
+
 3. 2 bar charts
     A. Per capita health expenditures for each service in 2010 (Dental, Durable Medical Equipment, home health, hospital,nursing care, etc)
+
     B. Total health expenditures for each service in 2010 
+    
 4. Filter for age group and gender (to make changes to both charts at once)
+
 5. color scale associated with gender
 
 Possible other additions:
