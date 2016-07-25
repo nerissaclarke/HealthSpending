@@ -27,5 +27,6 @@ Elements needed
 Possible other additions:
 stacked bar chart? Circles representing size of spend?
 
-*Not exactly sure the best way to display this data visually but would like to be able to filter to see multiple combinations and permutations
+*Not exactly sure the best way to display this data visually but would like to be able to filter to see multiple combinations and permutations.
+
 Ideas welcome
