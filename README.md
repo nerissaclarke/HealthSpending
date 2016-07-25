@@ -16,8 +16,8 @@ Elements needed
 2. Axes Labels
 
 3. 2 bar charts
-    A. Per capita health expenditures for each service in 2010 (Dental, Durable Medical Equipment, home health, hospital,nursing care, etc)
 
+    A. Per capita health expenditures for each service in 2010 (Dental, Durable Medical Equipment, home health, hospital,nursing care, etc)
     B. Total health expenditures for each service in 2010 
     
 4. Filter for age group and gender (to make changes to both charts at once)
