@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<style type="text/css">
+  /*css to go here*/
+
+.axis path {
+    fill: none;
+    stroke: #000;
+    stroke-width: 1;
+}
+
+.axis line {
+    stroke: #000;
+    stroke-width: 1;
+    stroke-dasharray: 1, 2;
+}
+
+.circles {
+    fill: steelblue;
+    fill-opacity: .75;
+    stroke: steelblue;
+}
+
+.axis text {
+    font: 12px sans-serif;
+}
+
+.buttons{
+    padding: 10px;
+    text-align: center;
+}
+</style>
+
+<body>
+
+<div id='buttonSpot'>
+<h1>  Total Personal Healthcare Spending: 2010 </h1>
+<h2> By Age Group </h2>
+
+</div>
+
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js" charset="utf-8"></script>
+
+<script>
+
+//Margins
+var margin = {top: 50, right: 50, bottom: 170, left: 75};
+
+var width = 1000 - margin.left - margin.right,
+    height = 600 - margin.top - margin.bottom;
+//Chart container
+var svg = d3.select("body")
+    .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform","translate(" + margin.left  + "," + margin.top + ")")
+
+//Scales
+var xScale = d3.scale.ordinal()
+//"Total Personal Health Care": filtered out, so removed from domain
+     // .domain(["Dental Services", "Durable Medical Equipment", "Home Health Care", "Hospital Care", "Nursing Care Facilities", "Other Health Residential and Personal Care", "Other Nondurable Medical Products", "Other Professional Services", "Physician and Clinical Services", "Prescription Drugs", "Total Personal Health Care", "Total Personal Health Care"])
+     .rangePoints([0, width], .05);
+
+var yScale = d3.scale.linear()
+      .domain([0, 850000])
+     .range([height, 0])
+
+//Axes
+var xAxis = d3.svg.axis()
+    .scale(xScale)
+    .ticks(15)
+    .tickSize(-height)
+    .orient("bottom");
+
+ var yAxis = d3.svg.axis()
+    .scale(yScale)
+    .ticks(15)
+    .tickSize(-width)
+    //FIGURE OUT HOW TO ADD $ in front of the thing: .tickFormat(function(d){return "$"+ ",.0f"; })
+    .orient("left");   
+
+
+
+//Color scale for gender
+// var colorScale = d3.scale.ordinal()
+//   .domain(["Males", "Females", "Total"])
+//   .range(["red", "green", "blue", "orangered", "yellowgreen", "violet", "purple"]);
+
+
+///////////////////////////////////////////////////
+// PB                                            //
+// You can set your own but I thought this would //
+// be simplier. This is the built in color scale //
+///////////////////////////////////////////////////
+var colorScale = d3.scale.category10()
+
+//Add data
+d3.csv("ageAndGenderCMS.csv", function(error, data) {
+
+  data.forEach(function(d) { 
+    // coercise the data from strings into integers 
+    d.Y2002 = +d.Y2002 ;
+    d.Y2004 = +d.Y2004 ;
+    d.Y2006 = +d.Y2006 ;
+    d.Y2008 = +d.Y2008 ;
+    d.Y2010 = +d.Y2010 ;
+
+  });
+
+  console.log(data);
+
+  //Filter data 
+  //Totals
+  var aggregatedData = data.filter(function(d) { return d.payer == "Total" && d.service !== "Total Personal Health Care"; }) //&& d.gender== "Total"; })
+
+
+  var totalPHCData = data.filter(function(d) { return d.service == "Total Personal Health Care"; })
+  var totalAgeGroupData = data.filter(function(d) { return d.ageGroup == "Total"; })
+  var totalGenderData = data.filter(function(d) { return d.gender== "Total"; })
+
+
+//Data Not Including Totals (All But Totals)
+  var abtPayerData = data.filter(function(d) { return d.payer == "Total"; })
+  var abtPHCData = data.filter(function(d) { return d.service == "Total Personal Health Care"; })
+  var abtAgeGroupData = data.filter(function(d) { return d.ageGroup == "Total"; })
+  var abtGenderData = data.filter(function(d) { return d.gender== "Total"; })
+
+
+///////////////////////////////////////////////////
+// PB  Question #1                               //
+// Here is where you dynaically set the xDomain. //
+// You had forgetten to use d3.set for distinct  //
+// values                                        //
+///////////////////////////////////////////////////
+ xScale.domain(d3.set(data.map(function(d) { return d.service; })).values())
+ //How do you sort the data of the domain?? Do you have to type it is randomly?.sort(function(a,b){return d3.ascending(a, b);});
+ yScale.domain(d3.extent(aggregatedData, function(d) { return d.Y2010; }));
+
+
+///////////////////////////////////////////////////////
+// PB   Question #1                                  //
+// I scooted this section down, as you were drawing  //
+// the xAxis before you set the domain on data.      //
+///////////////////////////////////////////////////////
+svg.append("g")
+    .attr("class", "x axis")
+    .attr("transform","translate(0," + height + ")" )
+    .call(xAxis)
+    .selectAll("text")
+      .style("text-anchor", "end")
+      .attr("dx", "-.8em")
+      .attr("dy", "-.55em")
+      .attr("transform", "rotate(-90)" )
+
+svg.append("g")
+    .attr("class", "y axis")
+    .call(yAxis)
+
+//Nest the data, using filtered data that shows only TOTAL PAYERS. We nest the data based on ageGroups so that we can create buttons that sort based on the ageGroup
+var nestedData =  d3.nest()
+    .key(function(d) { return d.ageGroup; })
+    .entries(aggregatedData);
+    console.log(nestedData);
+
+
+//Create buttons that use the nested data to switch between buttons
+  var buttons = d3.select("#buttonSpot").selectAll(".buttons")
+    .data(nestedData)
+  .enter().append("button")
+    .attr("class", "buttons")
+    .text(function(d) { return "Age Group: " + d.key;}) //+ " Total Spending in 2010: " + d.values; })
+    .on("click", function(d) { updateChart(d.values, d.key) })
+
+//Create a function that updates the change when the buttons are clicked
+ function updateChart(dataset, ageGroup) {
+
+  console.log(dataset);
+
+    var updatingGroups = d3.selectAll(".circle-group")
+      .data(dataset)
+      .attr("transform", function(d) { return "translate(" + xScale(d.service) + "," + yScale(d.Y2010) + ")" })
+
+
+//This doesnt really work as a way to access the color scale
+//genderLookup = {};
+
+//DEFINE GENDER USING (NON NESTED??) DATASET
+//var gender = gender.forEach( function(dataset) {
+
+//}      
+
+  updatingGroups.select("text")
+      .text(function(d) { return d.service + ", " + d.Y2010; })
+//
+
+
+ d3.select("#buttonSpot").select("h2")
+    .text("Age Group: " + ageGroup)
+  }
+
+   var filteredAgeData = nestedData.filter(function(d) { return d.key == 'Total'; }).sort()
+
+
+//Access the filtered data by saying [0] because it is the first value in the array when it is filtered. No other values beyond 0 when using filtered data
+  var circleGroups = svg.selectAll(".circle-group")
+      .data(filteredAgeData[0].values)
+    .enter().append("g")
+      .attr("class","circle-group")
+      .attr("transform", function(d) { return "translate(" + xScale(d.service) + "," + yScale(d.Y2010) + ")" })
+
+
+  circleGroups.append("circle")
+     .attr("class", "circles")
+     .attr("r", function(d){ return Math.sqrt(d.Y2010)/Math.PI/4;
+     })
+
+//////////////////////////////////////////////////////////
+// PB Question #2                                        //
+// Now for the color domain, you can just use the       //
+// gender variable in your dataset with the color scale //
+//////////////////////////////////////////////////////////
+    .style("fill", function(d) { return colorScale(d.gender) })
+
+
+//////////////////////////////////////////////////////////
+// PB  Question #3                                      //
+// To get the text to appear above the circles, you     //
+// Need to draw them after drawing the circles. They    //
+// still don't stand out a ton though. Might want to play/
+// wit different stylings to see what works best.       //
+//////////////////////////////////////////////////////////
+  circleGroups.append("text")
+      .attr("dx", 15)
+      .attr("dy", -15)
+      .text(function(d) { return "Spending on " + d.service + ": $" + d.Y2010; })
+        .style("fill","none")
+        .style("font","14px Helvetica")
+
+
+ d3.selectAll(".circle-group")
+     .on("mouseenter", function() { 
+          d3.select(this)
+            .select("circle")
+            .style("fill","#000")
+
+          d3.select(this)
+            .select("text")
+            .style("fill","#000")
+            .style("background", "blue")
+     })
+//////////////////////////////////////////////////////////
+// PB  Question #2                                      //
+// when you reset the color, you need to reference data //
+//////////////////////////////////////////////////////////
+     .on("mouseleave", function(d) {  // <---- added in (d) to reference data
+
+          d3.select(this)
+            .select("circle")
+            .style("fill", function(d) { return colorScale(d.gender) }) // <-- Use the data
+           
+          d3.select(this)
+            .select("text")
+            .style("fill","none")
+
+    });
+
+
+
+//new Update (Drill Down Style)
+ //
+  // .style("fill", function(d) {return colorScale(gender[d.id]);})
+});
+
+</script>

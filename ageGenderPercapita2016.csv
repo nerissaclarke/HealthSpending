@@ -1,0 +1,199 @@
+service,ageGroup,gender,Y2002 ,Y2004,Y2006,Y2008,Y2010 ,Y2012
+ Dental Services , Total , Total ,256,279,306,336,340,347
+ Dental Services , 0-18 , Total ,246,292,330,358,364,380
+ Dental Services , 19-44 , Total ,193,205,216,232,226,220
+ Dental Services , 45-64 , Total ,354,355,376,413,417,411
+ Dental Services , 65-84 , Total ,293,337,384,431,458,507
+ Dental Services , 85+ , Total ,196,235,282,342,348,379
+ Dental Services , Total , Males ,229,249,271,298,300,310
+ Dental Services , 0-18 , Males ,223,271,298,329,327,341
+ Dental Services , 19-44 , Males ,159,169,173,185,183,178
+ Dental Services , 45-64 , Males ,319,310,337,367,365,364
+ Dental Services , 65-84 , Males ,313,350,396,433,462,526
+ Dental Services , 85+ , Males ,224,270,320,401,393,437
+ Dental Services , Total , Females ,281,309,339,372,378,383
+ Dental Services , 0-18 , Females ,271,315,364,388,403,421
+ Dental Services , 19-44 , Females ,227,243,261,280,270,261
+ Dental Services , 45-64 , Females ,388,399,414,457,466,456
+ Dental Services , 65-84 , Females ,279,327,374,429,454,492
+ Dental Services , 85+ , Females ,184,219,265,314,325,350
+ Durable Medical Equipment , Total , Total ,94,104,115,124,129,139
+ Durable Medical Equipment , 0-18 , Total ,32,34,40,44,48,57
+ Durable Medical Equipment , 19-44 , Total ,55,60,63,69,78,80
+ Durable Medical Equipment , 45-64 , Total ,127,137,154,157,163,169
+ Durable Medical Equipment , 65-84 , Total ,267,288,318,345,329,347
+ Durable Medical Equipment , 85+ , Total ,445,541,552,549,523,598
+ Durable Medical Equipment , Total , Males ,80,86,100,107,113,123
+ Durable Medical Equipment , 0-18 , Males ,30,32,38,43,44,54
+ Durable Medical Equipment , 19-44 , Males ,43,47,54,55,64,67
+ Durable Medical Equipment , 45-64 , Males ,109,116,132,134,144,146
+ Durable Medical Equipment , 65-84 , Males ,264,277,315,349,327,348
+ Durable Medical Equipment , 85+ , Males ,470,552,574,591,560,668
+ Durable Medical Equipment , Total , Females ,109,121,131,140,145,156
+ Durable Medical Equipment , 0-18 , Females ,34,37,42,45,53,60
+ Durable Medical Equipment , 19-44 , Females ,67,72,72,84,92,94
+ Durable Medical Equipment , 45-64 , Females ,145,157,175,179,181,191
+ Durable Medical Equipment , 65-84 , Females ,268,297,321,342,329,346
+ Durable Medical Equipment , 85+ , Females ,434,536,542,530,505,563
+ Home Health Care , Total , Total ,127,153,175,205,230,245
+ Home Health Care , 0-18 , Total ,46,51,60,74,86,98
+ Home Health Care , 19-44 , Total ,38,45,49,58,70,78
+ Home Health Care , 45-64 , Total ,105,120,123,134,146,155
+ Home Health Care , 65-84 , Total ,450,545,625,712,746,731
+ Home Health Care , 85+ , Total ,1823,2241,2650,3057,3405,3518
+ Home Health Care , Total , Males ,99,116,131,154,175,189
+ Home Health Care , 0-18 , Males ,49,55,64,79,92,105
+ Home Health Care , 19-44 , Males ,35,41,42,48,58,64
+ Home Health Care , 45-64 , Males ,95,105,108,118,129,139
+ Home Health Care , 65-84 , Males ,374,439,504,572,613,613
+ Home Health Care , 85+ , Males ,1547,1872,2166,2489,2755,2820
+ Home Health Care , Total , Females ,154,188,217,255,283,299
+ Home Health Care , 0-18 , Females ,42,47,55,69,80,91
+ Home Health Care , 19-44 , Females ,42,50,56,68,81,93
+ Home Health Care , 45-64 , Females ,115,135,137,150,161,169
+ Home Health Care , 65-84 , Females ,508,627,720,825,854,828
+ Home Health Care , 85+ , Females ,1938,2401,2870,3325,3720,3868
+ Hospital Care , Total , Total ,1692,1932,2184,2395,2646,2879
+ Hospital Care , 0-18 , Total ,764,919,1087,1198,1356,1468
+ Hospital Care , 19-44 , Total ,964,1127,1305,1449,1602,1785
+ Hospital Care , 45-64 , Total ,2242,2489,2773,3011,3390,3732
+ Hospital Care , 65-84 , Total ,4588,5088,5466,5765,6015,6150
+ Hospital Care , 85+ , Total ,7278,7797,8458,9062,9194,9300
+ Hospital Care , Total , Males ,1554,1776,2017,2209,2464,2684
+ Hospital Care , 0-18 , Males ,795,957,1126,1241,1403,1522
+ Hospital Care , 19-44 , Males ,662,764,890,982,1099,1229
+ Hospital Care , 45-64 , Males ,2297,2549,2835,3063,3465,3851
+ Hospital Care , 65-84 , Males ,5026,5549,5974,6241,6564,6592
+ Hospital Care , 85+ , Males ,7714,8104,8777,9475,9605,9717
+ Hospital Care , Total , Females ,1827,2084,2347,2577,2823,3068
+ Hospital Care , 0-18 , Females ,731,879,1046,1152,1306,1412
+ Hospital Care , 19-44 , Females ,1273,1498,1729,1924,2109,2348
+ Hospital Care , 45-64 , Females ,2188,2431,2713,2961,3320,3618
+ Hospital Care , 65-84 , Females ,4252,4729,5063,5381,5569,5785
+ Hospital Care , 85+ , Females ,7096,7663,8313,8867,8995,9090
+ Nursing Care Facilities and Continuing Care Retirement Communities , Total , Total ,329,360,392,433,456,473
+ Nursing Care Facilities and Continuing Care Retirement Communities , 0-18 , Total ,9,10,10,11,12,14
+ Nursing Care Facilities and Continuing Care Retirement Communities , 19-44 , Total ,24,27,28,29,30,31
+ Nursing Care Facilities and Continuing Care Retirement Communities , 45-64 , Total ,159,180,199,219,233,248
+ Nursing Care Facilities and Continuing Care Retirement Communities , 65-84 , Total ,1449,1551,1658,1794,1816,1778
+ Nursing Care Facilities and Continuing Care Retirement Communities , 85+ , Total ,8284,8919,9242,9685,9814,9745
+ Nursing Care Facilities and Continuing Care Retirement Communities , Total , Males ,218,245,271,306,327,347
+ Nursing Care Facilities and Continuing Care Retirement Communities , 0-18 , Males ,10,11,12,13,14,16
+ Nursing Care Facilities and Continuing Care Retirement Communities , 19-44 , Males ,29,32,33,34,34,35
+ Nursing Care Facilities and Continuing Care Retirement Communities , 45-64 , Males ,174,198,220,241,258,275
+ Nursing Care Facilities and Continuing Care Retirement Communities , 65-84 , Males ,1201,1308,1409,1523,1569,1561
+ Nursing Care Facilities and Continuing Care Retirement Communities , 85+ , Males ,5548,5979,6235,6805,6837,6928
+ Nursing Care Facilities and Continuing Care Retirement Communities , Total , Females ,436,473,509,557,581,595
+ Nursing Care Facilities and Continuing Care Retirement Communities , 0-18 , Females ,7,8,9,9,11,12
+ Nursing Care Facilities and Continuing Care Retirement Communities , 19-44 , Females ,19,22,23,24,25,27
+ Nursing Care Facilities and Continuing Care Retirement Communities , 45-64 , Females ,144,162,179,198,209,222
+ Nursing Care Facilities and Continuing Care Retirement Communities , 65-84 , Females ,1640,1741,1855,2013,2017,1957
+ Nursing Care Facilities and Continuing Care Retirement Communities , 85+ , Females ,9427,10197,10606,11042,11258,11162
+ Other Residential/Personal Health Care , Total , Total ,267,305,339,377,418,440
+ Other Residential/Personal Health Care , 0-18 , Total ,165,183,210,234,256,263
+ Other Residential/Personal Health Care , 19-44 , Total ,249,286,305,335,375,401
+ Other Residential/Personal Health Care , 45-64 , Total ,332,382,408,465,513,525
+ Other Residential/Personal Health Care , 65-84 , Total ,365,414,482,511,566,591
+ Other Residential/Personal Health Care , 85+ , Total ,816,917,1179,1229,1212,1349
+ Other Residential/Personal Health Care , Total , Males ,270,315,345,386,433,454
+ Other Residential/Personal Health Care , 0-18 , Males ,180,200,229,258,283,300
+ Other Residential/Personal Health Care , 19-44 , Males ,260,305,324,356,402,437
+ Other Residential/Personal Health Care , 45-64 , Males ,352,410,434,505,561,562
+ Other Residential/Personal Health Care , 65-84 , Males ,327,373,426,447,508,516
+ Other Residential/Personal Health Care , 85+ , Males ,823,1038,1210,1213,1228,1273
+ Other Residential/Personal Health Care , Total , Females ,264,296,333,368,403,427
+ Other Residential/Personal Health Care , 0-18 , Females ,150,165,190,208,227,224
+ Other Residential/Personal Health Care , 19-44 , Females ,238,266,285,313,347,365
+ Other Residential/Personal Health Care , 45-64 , Females ,313,355,382,427,467,490
+ Other Residential/Personal Health Care , 65-84 , Females ,394,446,526,563,613,654
+ Other Residential/Personal Health Care , 85+ , Females ,813,864,1165,1237,1204,1388
+ Other Nondurable Medical Products , Total , Total ,116,130,147,163,166,171
+ Other Nondurable Medical Products , 0-18 , Total ,18,20,23,25,25,25
+ Other Nondurable Medical Products , 19-44 , Total ,50,56,62,68,68,68
+ Other Nondurable Medical Products , 45-64 , Total ,163,181,201,220,220,223
+ Other Nondurable Medical Products , 65-84 , Total ,418,465,516,563,564,570
+ Other Nondurable Medical Products , 85+ , Total ,605,661,728,788,785,789
+ Other Nondurable Medical Products , Total , Males ,97,109,124,138,141,146
+ Other Nondurable Medical Products , 0-18 , Males ,21,23,25,28,28,28
+ Other Nondurable Medical Products , 19-44 , Males ,41,45,50,55,55,56
+ Other Nondurable Medical Products , 45-64 , Males ,151,168,187,204,204,207
+ Other Nondurable Medical Products , 65-84 , Males ,378,421,469,513,515,523
+ Other Nondurable Medical Products , 85+ , Males ,470,518,573,624,628,633
+ Other Nondurable Medical Products , Total , Females ,135,151,169,187,190,196
+ Other Nondurable Medical Products , 0-18 , Females ,16,18,20,22,22,22
+ Other Nondurable Medical Products , 19-44 , Females ,60,66,74,80,80,81
+ Other Nondurable Medical Products , 45-64 , Females ,174,193,215,235,235,238
+ Other Nondurable Medical Products , 65-84 , Females ,449,499,553,603,603,609
+ Other Nondurable Medical Products , 85+ , Females ,662,724,798,866,862,867
+ Other Professional Services , Total , Total ,151,170,183,210,226,247
+ Other Professional Services , 0-18 , Total ,65,70,77,87,100,115
+ Other Professional Services , 19-44 , Total ,107,121,129,147,153,164
+ Other Professional Services , 45-64 , Total ,225,243,247,275,292,314
+ Other Professional Services , 65-84 , Total ,321,379,417,481,516,569
+ Other Professional Services , 85+ , Total ,409,479,552,615,661,591
+ Other Professional Services , Total , Males ,123,135,147,171,187,206
+ Other Professional Services , 0-18 , Males ,67,73,80,92,103,120
+ Other Professional Services , 19-44 , Males ,84,91,96,111,117,125
+ Other Professional Services , 45-64 , Males ,176,184,187,211,232,250
+ Other Professional Services , 65-84 , Males ,292,332,380,450,483,521
+ Other Professional Services , 85+ , Males ,392,468,533,603,650,628
+ Other Professional Services , Total , Females ,178,205,218,247,264,287
+ Other Professional Services , 0-18 , Females ,62,67,73,83,96,109
+ Other Professional Services , 19-44 , Females ,132,152,162,184,189,203
+ Other Professional Services , 45-64 , Females ,272,300,305,336,349,375
+ Other Professional Services , 65-84 , Females ,344,416,446,506,543,607
+ Other Professional Services , 85+ , Females ,416,484,560,621,667,572
+ Physician and Clinical Services , Total , Total ,1177,1334,1462,1592,1671,1796
+ Physician and Clinical Services , 0-18 , Total ,518,613,684,768,808,872
+ Physician and Clinical Services , 19-44 , Total ,759,882,986,1069,1102,1185
+ Physician and Clinical Services , 45-64 , Total ,1832,2000,2132,2248,2322,2467
+ Physician and Clinical Services , 65-84 , Total ,2677,2938,3118,3351,3486,3653
+ Physician and Clinical Services , 85+ , Total ,2550,2856,3159,3627,4008,4242
+ Physician and Clinical Services , Total , Males ,1009,1148,1257,1373,1450,1569
+ Physician and Clinical Services , 0-18 , Males ,539,637,711,787,845,913
+ Physician and Clinical Services , 19-44 , Males ,514,596,664,712,738,799
+ Physician and Clinical Services , 45-64 , Males ,1597,1734,1857,1965,2026,2187
+ Physician and Clinical Services , 65-84 , Males ,2775,3087,3234,3480,3629,3765
+ Physician and Clinical Services , 85+ , Males ,3085,3456,3714,4341,4797,5046
+ Physician and Clinical Services , Total , Females ,1340,1515,1662,1806,1885,2015
+ Physician and Clinical Services , 0-18 , Females ,496,588,656,747,770,828
+ Physician and Clinical Services , 19-44 , Females ,1009,1174,1315,1432,1470,1577
+ Physician and Clinical Services , 45-64 , Females ,2057,2256,2396,2521,2603,2733
+ Physician and Clinical Services , 65-84 , Females ,2602,2821,3027,3246,3371,3560
+ Physician and Clinical Services , 85+ , Females ,2326,2596,2908,3291,3625,3838
+ Prescription Drugs , Total , Total ,549,659,752,795,819,826
+ Prescription Drugs , 0-18 , Total ,161,205,226,234,245,261
+ Prescription Drugs , 19-44 , Total ,327,384,434,452,453,446
+ Prescription Drugs , 45-64 , Total ,966,1132,1308,1315,1305,1270
+ Prescription Drugs , 65-84 , Total ,1291,1504,1639,1823,1930,1977
+ Prescription Drugs , 85+ , Total ,1296,1693,1720,1872,1953,1900
+ Prescription Drugs , Total , Males ,472,567,656,716,744,760
+ Prescription Drugs , 0-18 , Males ,180,231,257,266,279,300
+ Prescription Drugs , 19-44 , Males ,254,296,338,363,368,364
+ Prescription Drugs , 45-64 , Males ,861,1012,1194,1241,1239,1222
+ Prescription Drugs , 65-84 , Males ,1195,1391,1497,1745,1863,1925
+ Prescription Drugs , 85+ , Males ,1226,1502,1493,1701,1791,1771
+ Prescription Drugs , Total , Females ,625,748,845,871,892,891
+ Prescription Drugs , 0-18 , Females ,142,178,194,200,208,220
+ Prescription Drugs , 19-44 , Females ,402,474,531,542,540,529
+ Prescription Drugs , 45-64 , Females ,1066,1246,1418,1386,1367,1315
+ Prescription Drugs , 65-84 , Females ,1364,1593,1752,1887,1985,2020
+ Prescription Drugs , 85+ , Females ,1325,1777,1822,1953,2031,1965
+ Total Personal Health Care , Total , Total ,4758,5428,6054,6629,7102,7564
+ Total Personal Health Care , 0-18 , Total ,2024,2398,2747,3032,3300,3552
+ Total Personal Health Care , 19-44 , Total ,2766,3193,3576,3908,4156,4458
+ Total Personal Health Care , 45-64 , Total ,6504,7218,7922,8456,9000,9513
+ Total Personal Health Care , 65-84 , Total ,12119,13509,14623,15776,16425,16872
+ Total Personal Health Care , 85+ , Total ,23702,26339,28521,30827,31903,32411
+ Total Personal Health Care , Total , Males ,4149,4747,5318,5858,6334,6788
+ Total Personal Health Care , 0-18 , Males ,2095,2490,2840,3136,3418,3698
+ Total Personal Health Care , 19-44 , Males ,2080,2387,2664,2901,3119,3352
+ Total Personal Health Care , 45-64 , Males ,6130,6786,7493,8048,8624,9203
+ Total Personal Health Care , 65-84 , Males ,12146,13528,14606,15753,16532,16890
+ Total Personal Health Care , 85+ , Males ,21500,23756,25594,28243,29244,29922
+ Total Personal Health Care , Total , Females ,5349,6089,6771,7380,7844,8315
+ Total Personal Health Care , 0-18 , Females ,1950,2301,2649,2923,3176,3399
+ Total Personal Health Care , 19-44 , Females ,3469,4017,4507,4934,5204,5579
+ Total Personal Health Care , 45-64 , Females ,6862,7633,8335,8849,9358,9808
+ Total Personal Health Care , 65-84 , Females ,12099,13495,14637,15795,16338,16857
+ Total Personal Health Care , 85+ , Females ,24621,27461,29848,32045,33192,33662
