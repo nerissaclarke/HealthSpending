@@ -4,10 +4,6 @@
 <style type="text/css">
   /*css to go here*/
 
-h2{
-  /*text-align: center;*/
-}
-
 .axis path {
     fill: none;
     stroke: #000;
@@ -34,39 +30,22 @@ h2{
     padding: 10px;
     text-align: center;
 }
-
-.textbubble {    
-    position: absolute;            
-    text-align: center;            
-    line-height: 10; 
-    padding: 50px, 50px, 50px, 50px;                
-    font: 12px helvetica; 
-    color: red;       
-    background: #000066;    
-    border: 10px solid #000066;        
-    border-radius: 8px;            
-    pointer-events: none;
-    opacity: 1;            
-}
-
 </style>
 
 <body>
 
-<div>
-<h1>  Average  Personal Healthcare Spending Per Capita in the United States: 2012 </h1>
-<h5> Source: CMS, Age and Gender Tables, data last updated: August 9, 2016</h5>
-<span id='buttonSpot'>
-    <span id=#genderbuttons></span>
-</span>
+<div id='buttonSpot'>
+<h1>  Total Personal Healthcare Spending: 2012 </h1>
 <h2> By Age Group </h2>
+
 </div>
-
-
 
 </body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js" charset="utf-8"></script>
+
+<script src="https://gist.github.com/nerissaclarke/090320f477d71dc033eb189cd54a0d48.js"></script>
+
 
 <script>
 
@@ -110,11 +89,9 @@ var xAxis = d3.svg.axis()
 
 
 //Color scale for gender
-var colorScale = d3.scale.ordinal()
-  .domain(["Males", "Females", "Total"])
-  .range(["Navy", "HotPink", "black" ]);
-
-    //"blue", "orangered", "yellowgreen", "violet", "purple"]);
+// var colorScale = d3.scale.ordinal()
+//   .domain(["Males", "Females", "Total"])
+//   .range(["red", "green", "blue", "orangered", "yellowgreen", "violet", "purple"]);
 
 
 ///////////////////////////////////////////////////
@@ -122,7 +99,7 @@ var colorScale = d3.scale.ordinal()
 // You can set your own but I thought this would //
 // be simplier. This is the built in color scale //
 ///////////////////////////////////////////////////
-//var colorScale = d3.scale.category10()
+var colorScale = d3.scale.category10()
 
 //Add data
 d3.csv("ageGenderPercapita2016.csv", function(error, data) {
@@ -141,15 +118,13 @@ d3.csv("ageGenderPercapita2016.csv", function(error, data) {
 
   //Filter data 
   //Totals
-  var aggregatedData = data.filter(function(d) { return d.service !== "Total Personal Health Care"})
-  // && d.gender== "Total"});
+  var aggregatedData = data.filter(function(d) {d.service !== "  Total Personal Health Care  "; }) //&& d.gender== "Total"; })
 
 console.log(aggregatedData);
 
   var totalPHCData = data.filter(function(d) { return d.service == "Total Personal Health Care"; })
   var totalAgeGroupData = data.filter(function(d) { return d.ageGroup == "Total"; })
   var totalGenderData = data.filter(function(d) { return d.gender== "Total"; })
-
 
   var maleData = data.filter(function(d) { return d.gender== "Males"; })
   var femaleData = data.filter(function(d) { return d.gender== "Females"; }) 
@@ -167,40 +142,9 @@ console.log(aggregatedData);
 // You had forgetten to use d3.set for distinct  //
 // values                                        //
 ///////////////////////////////////////////////////
-  xScale.domain(d3.set(data.map(function(d) { return d.service; })).values());
-
+ xScale.domain(d3.set(data.map(function(d) { return d.service; })).values())
  //How do you sort the data of the domain?? Do you have to type it is randomly?.sort(function(a,b){return d3.ascending(a, b);});
  yScale.domain(d3.extent(aggregatedData, function(d) { return d.Y2012; }));
-
-
-function wrap(text, width) {
-  text.each(function() {
-    var text = d3.select(this),
-        words = text.text().split(/\s+/).reverse(),
-        word,
-        line = [],
-        lineNumber = 0,
-        lineHeight = 1.1, // ems
-        y = text.attr("y"),
-        dy = parseFloat(text.attr("dy")),
-        tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
-    while (word = words.pop()) {
-      line.push(word);
-      tspan.text(line.join(" "));
-      if (tspan.node().getComputedTextLength() > width) {
-        line.pop();
-        tspan.text(line.join(" "));
-        line = [word];
-        tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
-      }
-    }
-  });
-}
-
-function type(d) {
-  d.value = +d.value;
-  return d;
-}
 
 
 ///////////////////////////////////////////////////////
@@ -212,21 +156,17 @@ svg.append("g")
     .attr("class", "x axis")
     .attr("transform","translate(0," + height + ")" )
     .call(xAxis)
-    .selectAll(".tick text")
-      .call(wrap, xScale.rangeBand());
-
-  //  .selectAll("text")
-  //    .style("text-anchor", "end")
-  //    .attr("dx", "-1em")
-  //    .attr("dy", "0em")
-      //Angles the text along the axis  
-   //   .attr("transform", "rotate(-45)" );
+    .selectAll("text")
+      .style("text-anchor", "end")
+      .attr("dx", "-.8em")
+      .attr("dy", "-.55em")
+      .attr("transform", "rotate(-90)" )
 
 svg.append("g")
     .attr("class", "y axis")
     .call(yAxis)
 
-//Nest the data, using filtered data. We nest the data based on ageGroups so that we can create buttons that sort based on the ageGroup
+//Nest the data, using filtered data that shows only TOTAL PAYERS. We nest the data based on ageGroups so that we can create buttons that sort based on the ageGroup
 var nestedData =  d3.nest()
     .key(function(d) { return d.ageGroup; })
     .entries(aggregatedData);
@@ -238,19 +178,8 @@ var nestedData =  d3.nest()
     .data(nestedData)
   .enter().append("button")
     .attr("class", "buttons")
-    .text(function(d) { return "Age Group: " + d.key;}) //+ " Total Spending in 2012: " + d.values; })
-    .on("click", function(d) { updateChart(d.values, d.key) })
-
-
-//Create buttons that use the nested data to switch between buttons
-  var buttons = d3.select("#buttonSpot").selectAll(".buttons")
-    .data(nestedData)
-  .enter().append("button")
-    .attr("class", "buttons")
     .text(function(d) { return "Age Group: " + d.key;}) //+ " Total Spending in 2010: " + d.values; })
     .on("click", function(d) { updateChart(d.values, d.key) })
-
-
 
 //Create a function that updates the change when the buttons are clicked
  function updateChart(dataset, ageGroup) {
@@ -259,24 +188,28 @@ var nestedData =  d3.nest()
 
     var updatingGroups = d3.selectAll(".circle-group")
       .data(dataset)
-      .enter().append("g")
-      .attr("class", "circle-group")
       .attr("transform", function(d) { return "translate(" + xScale(d.service) + "," + yScale(d.Y2012) + ")" })
 
-  
+
+//This doesnt really work as a way to access the color scale
+//genderLookup = {};
+
+//DEFINE GENDER USING (NON NESTED??) DATASET
+//var gender = gender.forEach( function(dataset) {
+
+//}      
 
   updatingGroups.select("text")
       .text(function(d) { return d.service + ", " + d.Y2012; })
 //
 
 
- d3.select("div").select("h2")
+ d3.select("#buttonSpot").select("h2")
     .text("Age Group: " + ageGroup)
   }
 
-   var filteredAgeData = nestedData.filter(function(d) { return d.key == 'Total'; })
-console.log(nestedData);
-console.log(filteredAgeData);
+   var filteredAgeData = nestedData.filter(function(d) { return d.key === 'Total'; }).sort()
+
 
 //Access the filtered data by saying [0] because it is the first value in the array when it is filtered. No other values beyond 0 when using filtered data
   var circleGroups = svg.selectAll(".circle-group")
@@ -288,7 +221,7 @@ console.log(filteredAgeData);
 
   circleGroups.append("circle")
      .attr("class", "circles")
-     .attr("r", function(d){ return Math.sqrt(d.Y2012)/Math.PI*1.5;
+     .attr("r", function(d){ return Math.sqrt(d.Y2012)/Math.PI/4;
      })
 
 //////////////////////////////////////////////////////////
@@ -309,28 +242,22 @@ console.log(filteredAgeData);
   circleGroups.append("text")
       .attr("dx", 15)
       .attr("dy", -15)
-      .attr("class", "textbubble")
-      .text(function(d) { return //"Average Annual Spending"  + 
-        "$" + d.Y2012; })
-        .call(wrap, x.rangeBand())
+      .text(function(d) { return "Spending on " + d.service + ": $" + d.Y2012; })
         .style("fill","none")
         .style("font","14px Helvetica")
-        .style("font weight", "bold");
 
-  var format =   d3.format(",");  
 
  d3.selectAll(".circle-group")
      .on("mouseenter", function() { 
           d3.select(this)
             .select("circle")
-            .style("fill","#000")  
+            .style("fill","#000")
 
           d3.select(this)
             .select("text")
             .style("fill","#000")
             .style("background", "blue")
      })
- 
 //////////////////////////////////////////////////////////
 // PB  Question #2                                      //
 // when you reset the color, you need to reference data //
@@ -352,7 +279,6 @@ console.log(filteredAgeData);
 //new Update (Drill Down Style)
  //
   // .style("fill", function(d) {return colorScale(gender[d.id]);})
-
-});//End of the data function
+});
 
 </script>
